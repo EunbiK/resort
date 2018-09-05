@@ -1,0 +1,16 @@
+@charset "EUC-KR";
+
+
+body {
+	margin: 0;
+}
+.main { 
+   	background-image: url("resources/background.jpg");
+   	background-size:cover;
+   	background-repeat:no-repeat;
+   	height: calc(100vh - 80px);
+}
+.introduce {
+	width: 750px;
+	margin: 0 auto;
+}
