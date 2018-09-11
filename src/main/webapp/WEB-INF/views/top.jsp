@@ -7,7 +7,7 @@
 			    height: 80px;
 			    background-color: #CCCCCC;
 			}
-		    td { font-size:12; text-align:center; }
+		    .top td { font-size:12; text-align:center; }
 		    a:link { text-decoration:none; }
 		    a:visited { text-decoration:none; }
 		    a:hover { text-decoration:none; }

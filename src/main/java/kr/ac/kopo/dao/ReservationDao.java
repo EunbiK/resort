@@ -9,7 +9,8 @@ public interface ReservationDao {
 	
 	Reservation selectOne(long id);
 	List<Reservation> selectAll();
-	List<Room> selectRoomType(String type);
+//	List<Reservation> selectAllByDate(String time);
+	List<Reservation> selectAllByDateAndRoomType(String time, String roomType);
 	
 	int createOne(Reservation reservation);
 	void updateOne(Reservation reservation);

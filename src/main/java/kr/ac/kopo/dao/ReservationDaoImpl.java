@@ -37,13 +37,19 @@ public class ReservationDaoImpl implements ReservationDao {
 		return query.list();
 	}
 	
+//	@Override
+//	public List<Reservation> selectAllByDate(String time) {
+//		String hql = "FROM Reservation r WHERE r.time = '" + time + "'";
+//		Query query = getSession().createQuery(hql);
+//		return query.list();
+//	}
+	
 	@Override
-	public List<Room> selectRoomType(String type) {
-		String hql = "FROM Room WHERE type = '" + type + "'";
-		Query query = getSession().createQuery(hql);
+	public List<Reservation> selectAllByDateAndRoomType(String time, String roomType) {
+		String hql = "FROM Reservation WHERE time='" + time + "' AND room.type='" + roomType + "'";				
+		Query query = getSession().createQuery(hql);	
 		return query.list();
 	}
-	
 
 	@Override
 	public int createOne(Reservation reservation) {

@@ -9,12 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import kr.ac.kopo.domain.Reservation;
-import kr.ac.kopo.domain.User;
+import kr.ac.kopo.domain.Room;
 
 @Transactional
 @Repository
-public class UserDaoImpl implements UserDao {
+public class RoomDaoImpl implements RoomDao {
 	
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -24,40 +23,26 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User selectOne(long id) {
-		String hql = "FROM User WHERE id = " + id;
+	public Room selectOne(long id) {
+		String hql = "FROM Room WHERE id = " + id;
 		Query query = getSession().createQuery(hql);
-		return (User) query.uniqueResult();
+		return (Room) query.uniqueResult();
 	}
 	
 	@Override
-	public User selectOneByAuth(String auth) {
-		String hql = "FROM User WHERE auth = '" + auth + "'";
-		Query query = getSession().createQuery(hql);
-		return (User) query.uniqueResult();
-	}
-
-	@Override
-	public List<User> selectAll() {
-		String hql = "FROM User";
+	public List<Room> selectAll() {
+		String hql = "FROM Room";
 		Query query = getSession().createQuery(hql);
 		return query.list();
 	}
 
 	@Override
-	public int createOne(User user) {
-		return (int) getSession().save(user);
+	public List<Room> selectRoomType(String type) {
+		String hql = "FROM Room WHERE type = '" + type + "'";
+		Query query = getSession().createQuery(hql);
+		return query.list();
 	}
-
-	@Override
-	public void updateOne(User user) {
-		getSession().saveOrUpdate(user);
-	}
-
-	@Override
-	public void deleteOne(User user) {
-		getSession().delete(user);
-	}
-
+	
+	
 	
 }

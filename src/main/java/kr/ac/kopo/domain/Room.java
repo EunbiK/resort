@@ -20,6 +20,14 @@ public class Room {
 	
 	@Column
 	private int no;
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getType() {
 		return type;

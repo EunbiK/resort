@@ -31,6 +31,9 @@ public class User {
 	
 	@Column
 	private String auth;
+	
+	@Column
+	private String password;
 
 	@OneToMany(mappedBy="user", fetch=FetchType.EAGER, cascade = CascadeType.ALL)
 	private Set<Reservation> reservation;
@@ -76,7 +79,21 @@ public class User {
 	public void setAuth(String auth) {
 		this.auth = auth;
 	}
-	
-	
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Set<Reservation> getReservation() {
+		return reservation;
+	}
+
+	public void setReservation(Set<Reservation> reservation) {
+		this.reservation = reservation;
+	}
 	
 }
